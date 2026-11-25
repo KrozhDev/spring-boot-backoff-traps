@@ -41,9 +41,3 @@ Java 21, Spring Boot 3.5. No Docker, no broker, no Redis: tests use `Application
 and MockMvc and check what is wired. The application scans only `dev.backofftraps.app`,
 so traps never switch on by accident.
 
----
-
-**RU.** Семь бинов, которые молча выключают автоконфигурацию Spring Boot. `@ConditionalOnMissingBean`
-смотрит на тип бина, а не на намерение. На каждую ловушку три теста: что делает Boot сам, как ваш бин
-его выключает, и безопасный вариант. Главное: настраивайте бины Boot кастомайзерами, а не заменяйте их;
-второй бин того же типа объявляйте с `@Bean(defaultCandidate = false)`.
